@@ -1,0 +1,51 @@
+# --- Python Bytecode & Cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Virtual Environments ---
+# Standard venv, virtualenv, and others
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# --- Sensitive Environment Variables ---
+# Never commit your secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+
+# --- Distribution / Packaging ---
+# Files created when you build or package your project
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+lib/
+lib64/
+wheels/
+share/python-wheels/
+
+# --- IDEs and Editors ---
+# Optional: remove these if you want to share workspace settings
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# --- Unit Tests & Coverage ---
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
