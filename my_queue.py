@@ -12,7 +12,7 @@ Description: This script is an example queue implementation
 import unittest
 
 
-class Queue:
+class MyQueue:
 
     def __init__(self):
         self.data = []
@@ -49,39 +49,39 @@ class Queue:
 class TestQueueMethods(unittest.TestCase):
     
     def test_push(self):
-        q = Queue()
+        q = MyQueue()
         q.push(1)
         q.push(2)
         q.push(3)
         self.assertTrue(q.get_queue_contents() == [1, 2, 3])
 
     def test_pop(self):
-        q = Queue()
+        q = MyQueue()
         q.push(1)
         q.push(2)
         q.pop()
         self.assertTrue(q.get_queue_contents() == [2])
 
     def test_front(self):
-        q = Queue()
+        q = MyQueue()
         q.push(1)
         q.push(2)
         q.push(3)
         self.assertTrue(q.front() == 1)
 
     def test_back(self):
-        q = Queue()
+        q = MyQueue()
         q.push(1)
         q.push(2)
         q.push(3)
         self.assertTrue(q.back() == 3)
 
     def test_empty(self):
-        q = Queue()        
+        q = MyQueue()        
         self.assertTrue(q.empty())
 
     def test_clear(self):
-        q = Queue()
+        q = MyQueue()
         q.push(1)
         q.push(2)
         q.push(3)
@@ -89,7 +89,7 @@ class TestQueueMethods(unittest.TestCase):
         self.assertTrue(q.get_queue_contents() == [])
 
     def test_size(self):
-        q = Queue()
+        q = MyQueue()
         q.push(1)
         q.push(2)
         q.push(3)
