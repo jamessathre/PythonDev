@@ -132,6 +132,52 @@ def quickSort2Helper(arr, low, high):
         quickSort2Helper(arr, low, pi - 1)
         quickSort2Helper(arr, pi + 1, high) 
 
+@monitor_performance
+def merge_sort(element_list=[], start=0, end=0):    
+    merge_sort_helper(element_list, start, end)
+
+def merge_sort_helper(element_list=[], start=0, end=0):    
+    if start < end:
+        # print(f"merge_sort: {element_list[start:end]}\nstart: {start} \nend: {end}")
+        index = (start+end) // 2
+        merge_sort_helper(element_list, start, index)
+        merge_sort_helper(element_list, index+1, end)
+        merge_sort_merger(element_list, start, index, end)
+
+def merge_sort_merger(element_list, start, index, end):
+    num_left = (index - start) + 1
+    num_right = (end - index)
+    left_temp = [0] * num_left
+    right_temp = [0] * num_right
+
+    for i in range(num_left):
+        left_temp[i] = element_list[start + i]    
+
+    for i in range(num_right):
+        right_temp[i] = element_list[index + i + 1]
+
+    i = 0
+    j = 0
+    k = start
+
+    while i < num_left and j < num_right:
+        if left_temp[i] < right_temp[j]:
+            element_list[k] = left_temp[i]
+            i += 1
+        else:
+            element_list[k] = right_temp[j]
+            j += 1
+        k += 1
+
+    while i != num_left:
+        element_list[k] = left_temp[i]
+        i+=1
+        k+=1
+
+    while j != num_right:
+        element_list[k] = right_temp[j]
+        j+=1
+        k+=1
 
 
 def test_sort_times():
@@ -141,12 +187,14 @@ def test_sort_times():
     # print(*rand_list)    
     
     # print("Testing basic sort method")
-    basic_sort(rand_list.copy())        
-    quick_sort(rand_list.copy())
+    # basic_sort(rand_list.copy())        
+    # quick_sort(rand_list.copy())
+    # quickSort2(rand_list.copy(), 0, num_list_elements-1)
+    merge_sort(rand_list.copy(), 0, num_list_elements-1)
 
     # test = np.array([1, 7, 5, 9, 2, 4, 3])
     # print(f"final list: {test}")
-    quickSort2(rand_list.copy(), 0, num_list_elements-1)
+    
     
 
 
