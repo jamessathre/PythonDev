@@ -25,6 +25,7 @@ class MyPriorityQueue(MyQueue):
         else:
             self.data.sort()
 
+
 class TestPriorityQueueMethods(unittest.TestCase):
 
     def generate_test_queue(self, sortmax=True):
